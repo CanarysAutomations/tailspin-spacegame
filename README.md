@@ -1,8 +1,12 @@
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1315e116650345da9177b96c327f7901)](https://app.codacy.com/manual/srivatsams/tailspin-spacegame-web?utm_source=github.com&utm_medium=referral&utm_content=srivatsamarichi/tailspin-spacegame-web&utm_campaign=Badge_Grade_Dashboard)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=playgroundgithub&metric=alert_status)](https://sonarcloud.io/dashboard?id=playgroundgithub)
-![Spacegame.Web.Docker](https://github.com/srivatsamarichi/tailspin-spacegame-web/workflows/Spacegame.Web.Docker/badge.svg)
-![Spacegame.Web](https://github.com/srivatsamarichi/tailspin-spacegame-web/workflows/Spacegame.Web/badge.svg)
-![Spacegame.Web.Docker.GHPackages](https://github.com/srivatsamarichi/tailspin-spacegame-web/workflows/Spacegame.Web.Docker.GHPackages/badge.svg)
+# Technical details
+
+|Actions| Status|
+|---|---|
+|Code Quality|[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1315e116650345da9177b96c327f7901)](https://app.codacy.com/manual/srivatsams/tailspin-spacegame-web?utm_source=github.com&utm_medium=referral&utm_content=srivatsamarichi/tailspin-spacegame-web&utm_campaign=Badge_Grade_Dashboard)|
+|Quality gate|[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=playgroundgithub&metric=alert_status)](https://sonarcloud.io/dashboard?id=playgroundgithub)
+|Spacegame.Web.Docker|![Spacegame.Web.Docker](https://github.com/srivatsamarichi/tailspin-spacegame-web/workflows/Spacegame.Web.Docker/badge.svg)
+|Spacegame.Web|![Spacegame.Web](https://github.com/srivatsamarichi/tailspin-spacegame-web/workflows/Spacegame.Web/badge.svg)
+|Spacegame.Web.Docker.GHPackages|![Spacegame.Web.Docker.GHPackages](https://github.com/srivatsamarichi/tailspin-spacegame-web/workflows/Spacegame.Web.Docker.GHPackages/badge.svg)
 
 ## Overview
 
@@ -13,5 +17,3 @@ The team builds websites to support new game titles. These websites provide info
 The Space Game website is a .NET Core app written in C# that's deployed to Linux. The website isn't finished yet, but here's what it looks like right now:
 
 ![](https://docs.microsoft.com/en-us/learn/azure-devops/assess-your-development-process/media/2-space-game-top.png)
-
-# Codeacy is awesome
