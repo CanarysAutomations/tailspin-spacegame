@@ -18,7 +18,7 @@ jobs:
     
     - name: docker login to github packages
       run: |
-        docker login docker.pkg.github.com -u srivatsamarichi -p ${{ secrets.GITHUB_TOKEN }}
+        docker login docker.pkg.github.com -u sriplayground -p ${{ secrets.GITHUB_TOKEN }}
     
     - name: Install Trivy
       run: |
@@ -34,9 +34,9 @@ jobs:
       run: |
         docker build -f $GITHUB_WORKSPACE/Tailspin.SpaceGame.Web/Dockerfile -t tailspinspacegameweb:${{ github.run_number }} .
         trivy --exit-code 0 --severity MEDIUM,HIGH tailspinspacegameweb:${{ github.run_number }}
-        docker tag tailspinspacegameweb:${{ github.run_number }} docker.pkg.github.com/srivatsamarichi/tailspin-spacegame-web/tailspinspacegameweb:${{ github.run_number }}
+        docker tag tailspinspacegameweb:${{ github.run_number }} docker.pkg.github.com/canarysplayground/tailspin-spacegame-web/tailspinspacegameweb:${{ github.run_number }}
    
     - name: push image
       run: |
-        docker push docker.pkg.github.com/srivatsamarichi/tailspin-spacegame-web/tailspinspacegameweb:${{ github.run_number }}
+        docker push docker.pkg.github.com/canarysplayground/tailspin-spacegame-web/tailspinspacegameweb:${{ github.run_number }}
     
