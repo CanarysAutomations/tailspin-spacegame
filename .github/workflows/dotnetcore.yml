@@ -23,7 +23,7 @@ jobs:
       run: dotnet restore
       
     - name: Build
-      run: dotnet publish Tailspin.SpaceGame.Web.sln /p:TransformWebConfigEnabled=False /p:AutoParameterizationWebConfigConnectionStrings=False /p:Configuration=Release /p:Platform='Any CPU' /p:WebPublishMethod=Package
+      run: dotnet publish Tailspin.SpaceGame.Web.sln -c Release -o ${{github.workspace}}/stagingdir
 
     - name: Test
       run: dotnet test --configuration Release --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=$GITHUB_WORKSPACE/TestResults/Coverage/      
