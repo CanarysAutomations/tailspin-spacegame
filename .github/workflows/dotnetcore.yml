@@ -6,7 +6,7 @@ on:
 
 jobs:
   BUILD_JOB:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -16,14 +16,14 @@ jobs:
       with:
         dotnet-version: 3.1.201
         
-    - name: Setup MSbuild
-      uses: microsoft/setup-msbuild@v1
+    #- name: Setup MSbuild
+    #  uses: microsoft/setup-msbuild@v1
       
     - name: Install dependencies
       run: dotnet restore
       
     - name: Build
-      run: msbuild Tailspin.SpaceGame.Web.sln /p:TransformWebConfigEnabled=False /p:AutoParameterizationWebConfigConnectionStrings=False /p:Configuration=Release /p:Platform='Any CPU' /p:DeployOnBuild=true /p:WebPublishMethod=Package
+      run: dotnet publish Tailspin.SpaceGame.Web.sln /p:TransformWebConfigEnabled=False /p:AutoParameterizationWebConfigConnectionStrings=False /p:Configuration=Release /p:Platform='Any CPU' /p:DeployOnBuild=true /p:WebPublishMethod=Package
     #- name: Build
     #  run: |
     #    dotnet build --configuration Release --no-restore
@@ -35,4 +35,4 @@ jobs:
       uses: actions/upload-artifact@v1.0.0
       with:
         name: space-web
-        path: ${{github.workspace}}
+        path: ${{github.workspace}}/Tailspin.SpaceGame.Web/obj/Release/netcoreapp3.1/PubTmp/Out
