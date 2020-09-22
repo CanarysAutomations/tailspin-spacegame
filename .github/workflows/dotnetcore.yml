@@ -22,7 +22,7 @@ jobs:
     - name: Build
       run: |
         dotnet build --configuration Release --no-restore
-        ls ././Tailspin.SpaceGame.Web/bin
+        ls ./Tailspin.SpaceGame.Web/bin
     - name: Test
       run: dotnet test --configuration Release --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=$GITHUB_WORKSPACE/TestResults/Coverage/      
       
