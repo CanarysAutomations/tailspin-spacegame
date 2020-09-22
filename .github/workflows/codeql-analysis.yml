@@ -2,6 +2,8 @@ name: "Code scanning - action"
 
 on:
   push:
+    paths-ignore: 
+      - '**'
   schedule:
     - cron: '0 21 * * 5'
 
