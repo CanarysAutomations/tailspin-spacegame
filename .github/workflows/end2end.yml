@@ -43,9 +43,13 @@ jobs:
       with:
         name: space-web
         path: ${{github.workspace}}
-     
+      
+    - name: Azure Login
+      uses: Azure/login@v1
+      with:   
+        creds: ${{secrets.GRENSTON_AZURE_CREDS}}
+  
     - name: Deploy to WebApp
       uses: Azure/webapps-deploy@v2
       with:
         app-name: ${{ github.event.inputs.appName }}
-        publish-profile: ${{ secrets.AZUREWEBAPPPUBLISHPROFILE }}  
