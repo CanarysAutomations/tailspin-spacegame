@@ -6,7 +6,7 @@ on:
 
 jobs:
   BUILD_JOB:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -23,11 +23,8 @@ jobs:
       run: dotnet restore
       
     - name: Build
-      run: dotnet build Tailspin.SpaceGame.Web.sln /p:TransformWebConfigEnabled=False /p:AutoParameterizationWebConfigConnectionStrings=False /p:Configuration=Release /p:Platform='Any CPU' /p:WebPublishMethod=Package
-    #- name: Build
-    #  run: |
-    #    dotnet build --configuration Release --no-restore
-    #    ls ./Tailspin.SpaceGame.Web/bin
+      run: dotnet publish Tailspin.SpaceGame.Web.sln /p:TransformWebConfigEnabled=False /p:AutoParameterizationWebConfigConnectionStrings=False /p:Configuration=Release /p:Platform='Any CPU' /p:WebPublishMethod=Package
+
     - name: Test
       run: dotnet test --configuration Release --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=$GITHUB_WORKSPACE/TestResults/Coverage/      
       
