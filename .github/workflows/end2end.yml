@@ -1,11 +1,12 @@
-name: Spacegame.Web
+name: Spacegame E2E
 on:
-  push:
-    branches:
-      - master
-
+  workflow_dispatch:
+    inputs:
+      appName:
+        description: 'App Service Name'     
+        required: true
 jobs:
-  BUILD_JOB:
+  BUILD:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
@@ -30,3 +31,21 @@ jobs:
       with:
         name: space-web
         path: ${{github.workspace}}/Tailspin.SpaceGame.Web/bin/Release/netcoreapp3.1/publish
+        
+#===========================================================================================================
+  DEPLOY:
+    runs-on: ubuntu-latest
+    needs: BUILD
+    steps:
+    
+    - name: Download a Build Artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: space-web
+        path: ${{github.workspace}}
+     
+    - name: Deploy to WebApp
+      uses: Azure/webapps-deploy@v2
+      with:
+        app-name: ${{ github.event.inputs.appName }}
+        publish-profile: ${{ secrets.AZUREWEBAPPPUBLISHPROFILE }}  
