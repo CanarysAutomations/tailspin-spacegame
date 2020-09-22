@@ -4,6 +4,8 @@ on:
     - cron: '0 0 * * *'
   push:
     branches: [ master, ghdemo ]
+    paths-ignore: 
+      - '**'
   pull_request:
     branches: [ master ]
 
