@@ -20,7 +20,7 @@ jobs:
       run: dotnet restore
       
     - name: Build
-      run: dotnet publish Tailspin.SpaceGame.Web.sln -c Release --no-restore
+      run: dotnet publish -c Release --no-restore
 
     - name: Test
       run: dotnet test --configuration Release --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=$GITHUB_WORKSPACE/TestResults/Coverage/      
@@ -29,4 +29,4 @@ jobs:
       uses: actions/upload-artifact@v1.0.0
       with:
         name: space-web
-        path: ${{github.workspace}}
+        path: ${{github.workspace}}/Tailspin.SpaceGame.Web/bin/Release/netcoreapp3.1/publish
