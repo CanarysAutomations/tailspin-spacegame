@@ -20,16 +20,12 @@ jobs:
       run: dotnet restore
 
     - name: Build
-      run: dotnet build --configuration Release --no-restore
-
+      run: |
+        dotnet build --configuration Release --no-restore
+        ls ././Tailspin.SpaceGame.Web/bin
     - name: Test
       run: dotnet test --configuration Release --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=$GITHUB_WORKSPACE/TestResults/Coverage/      
-    - name: Azure WebApp
-      uses: Azure/webapps-deploy@v2
-      with:
-       app-name: tailspinapp
-       publish-profile: ${{secrets.WEB_APP_PUBLISH_PROFILE}}
-       package: ./Tailspin.SpaceGame.Web/obj/Release/netcoreapp3.1
+      
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
       with:
