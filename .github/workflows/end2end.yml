@@ -47,7 +47,7 @@ jobs:
     - name: Azure Login
       uses: Azure/login@v1
       with:   
-        creds: ${{secrets.GRENSTON_AZURE_CREDS}}
+        creds: ${{ secrets.GRENSTON_AZURE_CREDS }}
   
     - name: Deploy to WebApp
       uses: Azure/webapps-deploy@v2
