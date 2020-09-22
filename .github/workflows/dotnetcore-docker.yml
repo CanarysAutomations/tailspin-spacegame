@@ -1,6 +1,8 @@
 name: Spacegame.Web.Docker
 on:
   push:
+    paths-ignore: 
+      - '**'
     branches:
       - master
       - website-fixes
