@@ -15,14 +15,18 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.201
-
+    - name: Setup MSbuild
+      uses: microsoft/setup-msbuild@v1
+      
     - name: Install dependencies
       run: dotnet restore
-
+      
     - name: Build
-      run: |
-        dotnet build --configuration Release --no-restore
-        ls ./Tailspin.SpaceGame.Web/bin
+      run: msbuild Tailspin.SpaceGame.Web.sln /p:TransformWebConfigEnabled=False /p:AutoParameterizationWebConfigConnectionStrings=False /p:Configuration=Release /p:Platform='Any CPU' /p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="${{github.workspace}}\stagingdir"
+    #- name: Build
+    #  run: |
+    #    dotnet build --configuration Release --no-restore
+    #    ls ./Tailspin.SpaceGame.Web/bin
     - name: Test
       run: dotnet test --configuration Release --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=$GITHUB_WORKSPACE/TestResults/Coverage/      
       
@@ -30,4 +34,4 @@ jobs:
       uses: actions/upload-artifact@v1.0.0
       with:
         name: space-web
-        path: ./Tailspin.SpaceGame.Web/obj/Release/netcoreapp3.1
+        path: ${{github.workspace}}\stagingdir
