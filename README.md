@@ -10,7 +10,7 @@
 
 ## Overview
 
-Tailspin Toys, or Tailspin for short, is a video game company. Tailspin hosts its game servers and websites in an on-premises data-center. The company just celebrated the release of a new racing game. They'll be releasing a space shooter game, called Space Game, in the coming months.
+Tailspin Toy, or Tailspin for short, is a video game company. Tailspin hosts its game servers and websites in an on-premises data-center. The company just celebrated the release of a new racing game. They'll be releasing a space shooter game, called Space Game, in the coming months.
 
 The team builds websites to support new game titles. These websites provide information about the game, ways to get it, and leader-boards that show top scores. Each website must go live the same day the game is released.
 
