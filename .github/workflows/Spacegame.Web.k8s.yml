@@ -1,9 +1,9 @@
 name: Spacegame.Web.k8s
 on:
-  schedule:
-    - cron: '0 0 * * *'
+  #schedule:
+  #  - cron: '0 0 * * *'
   push:
-    branches: [master, k8s]
+    branches: [master]
     paths-ignore: 
       - '**'
 # Environment variables available to all jobs and steps in this workflow
