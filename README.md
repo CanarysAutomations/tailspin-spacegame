@@ -1,4 +1,4 @@
-# Technical details
+## Technical details
 
 |Actions| Status|
 |---|---|
