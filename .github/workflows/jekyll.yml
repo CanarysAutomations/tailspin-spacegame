@@ -6,10 +6,19 @@ on:
 jobs:
   build:
 
-    runs-on: [self-hosted,psr-agent]
+    runs-on: [self-hosted,runner1]
 
     steps:
     - uses: actions/checkout@v2
     - name: Test
       shell: powershell
-      run: Write-Host "Hello
+      run: Write-Host "Executing on 1"
+  deploy:
+    needs: build
+    runs-on: [self-hosted,runner2]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Test
+      shell: powershell
+      run: Write-Host "Executing on 2"
